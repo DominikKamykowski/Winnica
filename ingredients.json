@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "test235",
+        "stockQuantity": 1
+    },
+    {
+        "id": 2,
+        "name": "test25555",
+        "stockQuantity": 5
+    },
+    {
+        "id": 3,
+        "name": "test3333",
+        "stockQuantity": 0
+    },
+    {
+        "id": 4,
+        "name": "test44",
+        "stockQuantity": 14
+    }
+]

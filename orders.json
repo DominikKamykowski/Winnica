@@ -1,0 +1,20 @@
+[
+    {
+        "creationDate": "2024-11-25",
+        "deliveryDate": "2024-11-25",
+        "factoryNumber": "2024/01",
+        "id": 1,
+        "items": "Wino, piwo 50%",
+        "shippingDate": "2024-11-25",
+        "status": 2
+    },
+    {
+        "creationDate": "2024-11-25",
+        "deliveryDate": "",
+        "factoryNumber": "2024/02",
+        "id": 2,
+        "items": "Cola zero, mojito x4",
+        "shippingDate": "2024-11-27",
+        "status": 1
+    }
+]

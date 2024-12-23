@@ -1,0 +1,48 @@
+[
+    {
+        "factoryNumber": "A12345",
+        "id": 1,
+        "ingredients": [
+            "cukier",
+            "mleko",
+            "kakao",
+            "woda",
+            "wanilia"
+        ],
+        "name": "Czekolada mleczna",
+        "quantity": 150
+    },
+    {
+        "factoryNumber": "B54321",
+        "id": 2,
+        "ingredients": [
+            "cukier",
+            "kakao",
+            "masło kakaowe",
+            "wanilia"
+        ],
+        "name": "Czekolada gorzka",
+        "quantity": 200
+    },
+    {
+        "factoryNumber": "C98765",
+        "id": 3,
+        "ingredients": [
+            "zielona herbata",
+            "jaśmin"
+        ],
+        "name": "Herbata zielona",
+        "quantity": 100
+    },
+    {
+        "factoryNumber": "2024/12/1",
+        "id": 4,
+        "ingredients": [
+            "mleko",
+            "miód",
+            "cukier"
+        ],
+        "name": "test",
+        "quantity": 4
+    }
+]
