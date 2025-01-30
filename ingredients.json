@@ -1,22 +1,153 @@
 [
     {
         "id": 1,
-        "name": "test235",
-        "stockQuantity": 1
+        "name": "Winogrona",
+        "stockQuantity": 500
     },
     {
         "id": 2,
-        "name": "test25555",
-        "stockQuantity": 5
+        "name": "Drożdże winiarskie",
+        "stockQuantity": 200
     },
     {
         "id": 3,
-        "name": "test3333",
-        "stockQuantity": 0
+        "name": "Cukier",
+        "stockQuantity": 250
     },
     {
         "id": 4,
-        "name": "test44",
-        "stockQuantity": 14
+        "name": "Woda",
+        "stockQuantity": 300
+    },
+    {
+        "id": 5,
+        "name": "Kwasek cytrynowy",
+        "stockQuantity": 150
+    },
+    {
+        "id": 6,
+        "name": "Pirosiarczyn potasu",
+        "stockQuantity": 100
+    },
+    {
+        "id": 7,
+        "name": "Pożywka dla drożdży",
+        "stockQuantity": 120
+    },
+    {
+        "id": 8,
+        "name": "Mleko",
+        "stockQuantity": 320
+    },
+    {
+        "id": 9,
+        "name": "Kakao",
+        "stockQuantity": 180
+    },
+    {
+        "id": 10,
+        "name": "Wanilia",
+        "stockQuantity": 190
+    },
+    {
+        "id": 11,
+        "name": "Masło",
+        "stockQuantity": 270
+    },
+    {
+        "id": 12,
+        "name": "Orzechy",
+        "stockQuantity": 150
+    },
+    {
+        "id": 13,
+        "name": "Olej palmowy",
+        "stockQuantity": 140
+    },
+    {
+        "id": 14,
+        "name": "Mąka",
+        "stockQuantity": 300
+    },
+    {
+        "id": 15,
+        "name": "Drożdże",
+        "stockQuantity": 100
+    },
+    {
+        "id": 16,
+        "name": "Śmietanka",
+        "stockQuantity": 210
+    },
+    {
+        "id": 17,
+        "name": "Czekolada",
+        "stockQuantity": 230
+    },
+    {
+        "id": 18,
+        "name": "Herbata czarna",
+        "stockQuantity": 180
+    },
+    {
+        "id": 19,
+        "name": "Bergamotka",
+        "stockQuantity": 90
+    },
+    {
+        "id": 20,
+        "name": "Herbata zielona",
+        "stockQuantity": 160
+    },
+    {
+        "id": 21,
+        "name": "Mięta",
+        "stockQuantity": 130
+    },
+    {
+        "id": 22,
+        "name": "Kawa",
+        "stockQuantity": 120
+    },
+    {
+        "id": 23,
+        "name": "Kardamon",
+        "stockQuantity": 70
+    },
+    {
+        "id": 24,
+        "name": "Orzechy laskowe",
+        "stockQuantity": 110
+    },
+    {
+        "id": 25,
+        "name": "Cytryna",
+        "stockQuantity": 200
+    },
+    {
+        "id": 26,
+        "name": "Miód",
+        "stockQuantity": 140
+    },
+    {
+        "id": 27,
+        "name": "Imbir",
+        "stockQuantity": 115
+    },
+    {
+        "id": 28,
+        "name": "Masło kakaowe",
+        "stockQuantity": 175
+    },
+    {
+        "id": 29,
+        "name": "Herbata biała",
+        "stockQuantity": 95
+    },
+    {
+        "id": 30,
+        "name": "Kwiat jaśminu",
+        "stockQuantity": 85
     }
 ]
+

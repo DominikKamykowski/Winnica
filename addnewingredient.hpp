@@ -15,7 +15,7 @@ class AddNewIngredient : public QDialog
 public:
     explicit AddNewIngredient(QDialog *parent = nullptr);
     void addIngredient();
-    void editIngredient(const QString& name, int quantity);
+    void editIngredient(const int id, const QString& name, int quantity);
 
 private:
     void createView();
@@ -27,6 +27,7 @@ private:
     QPushButton* saveButton = nullptr;
     QPushButton* cancelButton = nullptr;
     int editingIngredientId = -1;
+    int editId = 0;
     void saveClicked();
     void discardClicked();
 

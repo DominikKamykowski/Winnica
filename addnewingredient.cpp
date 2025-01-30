@@ -19,6 +19,8 @@ void AddNewIngredient::createView()
     saveButton = new QPushButton("Zapisz", this);
     cancelButton = new QPushButton("Anuluj", this);
 
+    this->setWindowTitle("Składniki");
+
     mainLayout->addWidget(new QLabel("Nazwa składnika", this));
     mainLayout->addWidget(nameEdit);
     mainLayout->addWidget(new QLabel("Ilość", this));
@@ -35,9 +37,10 @@ void AddNewIngredient::addIngredient()
     show();
 }
 
-void AddNewIngredient::editIngredient(const QString& name, int quantity)
+void AddNewIngredient::editIngredient(const int id, const QString& name, int quantity)
 {
     editingIngredientId = 1;
+    editId=id;
     editingName = name;
     nameEdit->setText(name);
     quantitySpinBox->setValue(quantity);
@@ -52,17 +55,23 @@ void AddNewIngredient::saveClicked()
     }
     auto manager = IngredientManager::getInstance();
 
-    Ingredient newIngredient(
-        manager->getNextId(),
-        nameEdit->text(),
-        quantitySpinBox->value()
-        );
+
 
     if (editingIngredientId == -1) {
+        Ingredient newIngredient(
+            manager->getNextId(),
+            nameEdit->text(),
+            quantitySpinBox->value()
+            );
         manager->appendIngredient(newIngredient);
     }
     else // Edycja istniejącego zamówienia
     {
+        Ingredient newIngredient(
+            editId,
+            nameEdit->text(),
+            quantitySpinBox->value()
+            );
         manager->updateIngredient(newIngredient);
     }
     accept();

@@ -47,6 +47,8 @@ void AddNewOrder::editOrder(const Order &order)
 
 void AddNewOrder::createView()
 {
+    this->setWindowTitle("Zamówienia");
+
     main_layout = new QVBoxLayout();
     this->setLayout(main_layout);
 

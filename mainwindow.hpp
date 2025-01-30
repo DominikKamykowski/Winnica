@@ -22,6 +22,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void prepareIngredientsTableWidget();
+
 private slots:
     void openAddNewAssortmentDialog();
     void refreshAssortmentTable();
@@ -31,6 +33,10 @@ private:
     QMenu * plik = nullptr;
     QMenu * print = nullptr;
     QAction * printOrders = nullptr, *printDrinks = nullptr, *printIngredients = nullptr;
+
+    void searchChanged();
+    void searchIngrChanged();
+    void searchAssortChanged();
 
     void prepareOrderTableWidget();
     void prepareAssortmentTableWidget();
@@ -54,6 +60,7 @@ private:
     void addIngredientClicked();
     void editIngredientClicked();
     void ingredientSaved();
+    void editAssortmentClicked();
 
 };
 #endif // MAINWINDOW_HPP

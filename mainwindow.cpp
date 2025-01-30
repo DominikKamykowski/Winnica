@@ -36,10 +36,17 @@ MainWindow::MainWindow(QWidget *parent)
     menuBar()->addMenu(plik);
     prepareOrderTableWidget();
     prepareAssortmentTableWidget();
+    prepareIngredientsTableWidget();
+
 
     ui->orderTableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->assortmentTableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->ingredientTableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QObject::connect(ui->orderTableWidget,&QTableWidget::cellDoubleClicked,this,&MainWindow::cellClicked);
+    QObject::connect(ui->ingredientTableWidget,&QTableWidget::cellDoubleClicked,this,&MainWindow::editIngredientClicked);
+    QObject::connect(ui->assortmentTableWidget,&QTableWidget::cellDoubleClicked,this,&MainWindow::editAssortmentClicked);
+
     QObject::connect(ui->pb_addNewOrder,&QPushButton::clicked,this,&MainWindow::addOrderClicked);
     QObject::connect(newOrderDialog,&QDialog::accepted,this,&MainWindow::orderSaved);
     QObject::connect(ui->pb_editOrder,&QPushButton::clicked,this,&MainWindow::editOrderClicked);
@@ -50,13 +57,35 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pb_addIngredient, &QPushButton::clicked, this, &MainWindow::addIngredientClicked);
     connect(ui->pb_editIngredient, &QPushButton::clicked, this, &MainWindow::editIngredientClicked);
     connect(newIngredientDialog, &QDialog::accepted, this, &MainWindow::ingredientSaved);
+    connect(ui->pb_assortEdit, &QPushButton::clicked, this, &MainWindow::editAssortmentClicked);
 
+    QObject::connect(ui->le_find,&QLineEdit::textChanged,this,&MainWindow::searchChanged);
+    QObject::connect(ui->le_find_assortment,&QLineEdit::textChanged,this,&MainWindow::searchAssortChanged);
+    QObject::connect(ui->le_find_ingred_2,&QLineEdit::textChanged,this,&MainWindow::searchIngrChanged);
+
+
+    connect(ui->addAssortmentButton, &QPushButton::clicked, this, &MainWindow::openAddNewAssortmentDialog);
+    connect(addNewAssortmentDialog, &AddNewAssortment::finished, this, &MainWindow::refreshAssortmentTable);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     delete addNewAssortmentDialog;
+}
+
+void MainWindow::prepareIngredientsTableWidget()
+{
+    ui->ingredientTableWidget->setColumnCount(3);
+    ui->ingredientTableWidget->setHorizontalHeaderLabels({"ID", "Składnik", "Ilość"});
+
+    QList<Ingredient> ingredients = IngredientManager::getInstance()->loadIngredients();
+
+    for (const Ingredient &ingredient : ingredients)
+    {
+        ingredient.addToTable(ui->ingredientTableWidget);
+    }
+    ui->ingredientTableWidget->update();
 }
 
 void MainWindow::prepareOrderTableWidget()
@@ -73,60 +102,28 @@ void MainWindow::prepareOrderTableWidget()
 
     ui->orderTableWidget->update();
 
-    ui->ingredientTableWidget->setColumnCount(3);
-    ui->ingredientTableWidget->setHorizontalHeaderLabels({"ID", "Składnik", "Ilość"});
-
-    QList<Ingredient> ingredients = IngredientManager::getInstance()->loadIngredients();
-
-    for (const Ingredient &ingredient : ingredients)
-    {
-        ingredient.addToTable(ui->ingredientTableWidget);
-    }
-    ui->ingredientTableWidget->update();
-
-    // Przygotowanie tabeli asortymentów
-    ui->assortmentTableWidget->setColumnCount(5);
-    ui->assortmentTableWidget->setHorizontalHeaderLabels({"ID", "Nazwa", "Numer fabryczny", "Składniki", "Ilość"});
-
-    refreshAssortmentTable();
-
-    // Podłącz akcję otwierania okna dodawania nowego asortymentu
-    connect(ui->addAssortmentButton, &QPushButton::clicked, this, &MainWindow::openAddNewAssortmentDialog);
-
-    // Odśwież tabelę po zamknięciu dialogu dodawania/edycji
-    connect(addNewAssortmentDialog, &AddNewAssortment::finished, this, &MainWindow::refreshAssortmentTable);
 }
 
 
 void MainWindow::prepareAssortmentTableWidget()
 {
-    // Konfiguracja tabeli dla asortymentu
     ui->assortmentTableWidget->setColumnCount(5);
     ui->assortmentTableWidget->setHorizontalHeaderLabels({"ID", "Nazwa", "Numer fabryczny", "Składniki", "Ilość"});
-
-    // Pobieranie listy asortymentu z managera
     QList<Assortment> assortments = AssortmentManager::getInstance()->getAssortments();
-
-    // Dodawanie danych do tabeli
     for (const Assortment &assortment : assortments)
     {
         int row = ui->assortmentTableWidget->rowCount();
         ui->assortmentTableWidget->insertRow(row);
 
-        // Wypełnienie kolumn
         ui->assortmentTableWidget->setItem(row, 0, new QTableWidgetItem(QString::number(assortment.getId())));
         ui->assortmentTableWidget->setItem(row, 1, new QTableWidgetItem(assortment.getName()));
         ui->assortmentTableWidget->setItem(row, 2, new QTableWidgetItem(assortment.getFactoryNumber()));
-
-        // Łączenie składników w jedną kolumnę
         QStringList ingredientsList = QStringList::fromVector(assortment.getIngredients());
         QString ingredientsString = ingredientsList.join(", ");
         ui->assortmentTableWidget->setItem(row, 3, new QTableWidgetItem(ingredientsString));
 
         ui->assortmentTableWidget->setItem(row, 4, new QTableWidgetItem(QString::number(assortment.getQuantity())));
     }
-
-    // Aktualizacja widżetu tabeli
     ui->assortmentTableWidget->update();
 }
 
@@ -162,7 +159,7 @@ void MainWindow::orderSaved()
     ui->orderTableWidget->setRowCount(0);
     for (const Order &order : orders)
     {
-        order.addToTable(ui->orderTableWidget);
+         order.addToTable(ui->orderTableWidget);
     }
     ui->orderTableWidget->update();
 }
@@ -242,10 +239,10 @@ void MainWindow::editIngredientClicked()
         ui->statusbar->showMessage("Nie wybrano składnika do edycji", 2000);
     }
     else {
-
+        int id = IngredientManager::getInstance()->getIngredient(ui->ingredientTableWidget->currentRow()+1).getId();
             QString name = IngredientManager::getInstance()->getIngredient(ui->ingredientTableWidget->currentRow()+1).getName();
             int quantity = IngredientManager::getInstance()->getIngredient(ui->ingredientTableWidget->currentRow()+1).getStockQuantity();                // Pobierz ilość wybranego składnika
-            newIngredientDialog->editIngredient(name, quantity);
+            newIngredientDialog->editIngredient(id, name, quantity);
     }
 }
 
@@ -260,6 +257,23 @@ void MainWindow::ingredientSaved()
         ingredient.addToTable(ui->ingredientTableWidget);
     }
     ui->ingredientTableWidget->update();
+}
+
+void MainWindow::editAssortmentClicked()
+{
+    if (ui->assortmentTableWidget->selectedItems().isEmpty())
+    {
+        ui->statusbar->showMessage("Nie wybrano składnika do edycji", 2000);
+    }
+    else {
+        auto assortment = assortmentManager->getAssortmentById(ui->assortmentTableWidget->currentRow()+1);
+        addNewAssortmentDialog->editAssortment(assortment.getId(),
+                                               assortment.getName(),
+                                               assortment.getFactoryNumber(),
+                                               QStringList::fromVector(assortment.getIngredients()),
+                                               assortment.getQuantity());
+        addNewAssortmentDialog->show();
+    }
 }
 
 void MainWindow::openAddNewAssortmentDialog()
@@ -289,6 +303,21 @@ void MainWindow::refreshAssortmentTable()
         row++;
     }
     ui->assortmentTableWidget->update();
+}
+
+void MainWindow::searchChanged()
+{
+
+}
+
+void MainWindow::searchIngrChanged()
+{
+
+}
+
+void MainWindow::searchAssortChanged()
+{
+
 }
 
 

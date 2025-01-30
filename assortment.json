@@ -1,48 +1,266 @@
 [
     {
-        "factoryNumber": "A12345",
+        "factoryNumber": "W001",
         "id": 1,
+        "ingredients": [
+            "winogrona",
+            "drożdże winiarskie",
+            "cukier",
+            "woda"
+        ],
+        "name": "Wino czerwone wytrawne",
+        "quantity": 500
+    },
+    {
+        "factoryNumber": "W002",
+        "id": 2,
+        "ingredients": [
+            "winogrona",
+            "drożdże winiarskie",
+            "cukier",
+            "woda",
+            "kwasek cytrynowy"
+        ],
+        "name": "Wino białe półsłodkie",
+        "quantity": 450
+    },
+    {
+        "factoryNumber": "W003",
+        "id": 3,
+        "ingredients": [
+            "winogrona",
+            "drożdże winiarskie",
+            "cukier",
+            "woda",
+            "pirosiarczyn potasu"
+        ],
+        "name": "Wino różowe musujące",
+        "quantity": 400
+    },
+    {
+        "factoryNumber": "W004",
+        "id": 4,
+        "ingredients": [
+            "winogrona",
+            "drożdże winiarskie",
+            "cukier",
+            "pożywka dla drożdży",
+            "kwasek cytrynowy"
+        ],
+        "name": "Wino domowe",
+        "quantity": 420
+    },
+    {
+        "factoryNumber": "D11223",
+        "id": 5,
         "ingredients": [
             "cukier",
             "mleko",
-            "kakao",
-            "woda",
+            "masło",
             "wanilia"
         ],
-        "name": "Czekolada mleczna",
-        "quantity": 150
+        "name": "Cukierki mleczne",
+        "quantity": 250
     },
     {
-        "factoryNumber": "B54321",
-        "id": 2,
+        "factoryNumber": "E44556",
+        "id": 6,
+        "ingredients": [
+            "mleko",
+            "śmietanka",
+            "cukier",
+            "wanilia"
+        ],
+        "name": "Lody waniliowe",
+        "quantity": 320
+    },
+    {
+        "factoryNumber": "F77889",
+        "id": 7,
+        "ingredients": [
+            "czekolada",
+            "orzechy",
+            "cukier",
+            "olej palmowy"
+        ],
+        "name": "Baton czekoladowy",
+        "quantity": 180
+    },
+    {
+        "factoryNumber": "G99100",
+        "id": 8,
+        "ingredients": [
+            "mąka",
+            "cukier",
+            "drożdże",
+            "czekolada"
+        ],
+        "name": "Ciastka czekoladowe",
+        "quantity": 270
+    },
+    {
+        "factoryNumber": "H22334",
+        "id": 9,
+        "ingredients": [
+            "kakao",
+            "cukier",
+            "mleko"
+        ],
+        "name": "Gorąca czekolada",
+        "quantity": 190
+    },
+    {
+        "factoryNumber": "I55677",
+        "id": 10,
+        "ingredients": [
+            "herbata czarna",
+            "bergamotka"
+        ],
+        "name": "Earl Grey",
+        "quantity": 220
+    },
+    {
+        "factoryNumber": "J88990",
+        "id": 11,
+        "ingredients": [
+            "herbata zielona",
+            "mięta"
+        ],
+        "name": "Herbata miętowa",
+        "quantity": 130
+    },
+    {
+        "factoryNumber": "K11223",
+        "id": 12,
+        "ingredients": [
+            "kawa",
+            "kardamon"
+        ],
+        "name": "Kawa arabska",
+        "quantity": 110
+    },
+    {
+        "factoryNumber": "L44556",
+        "id": 13,
+        "ingredients": [
+            "mleko",
+            "cukier",
+            "kawa"
+        ],
+        "name": "Latte macchiato",
+        "quantity": 140
+    },
+    {
+        "factoryNumber": "M77889",
+        "id": 14,
+        "ingredients": [
+            "czekolada gorzka",
+            "orzechy laskowe"
+        ],
+        "name": "Czekolada z orzechami",
+        "quantity": 170
+    },
+    {
+        "factoryNumber": "N99100",
+        "id": 15,
+        "ingredients": [
+            "herbata zielona",
+            "cytryna",
+            "miód"
+        ],
+        "name": "Herbata cytrynowa",
+        "quantity": 160
+    },
+    {
+        "factoryNumber": "O22334",
+        "id": 16,
+        "ingredients": [
+            "mąka",
+            "cukier",
+            "masło",
+            "wanilia"
+        ],
+        "name": "Ciastka maślane",
+        "quantity": 300
+    },
+    {
+        "factoryNumber": "P55677",
+        "id": 17,
         "ingredients": [
             "cukier",
+            "masło",
+            "kakao",
+            "wanilia"
+        ],
+        "name": "Fudge czekoladowy",
+        "quantity": 140
+    },
+    {
+        "factoryNumber": "Q88990",
+        "id": 18,
+        "ingredients": [
+            "herbata czarna",
+            "imbir",
+            "miód"
+        ],
+        "name": "Herbata imbirowa",
+        "quantity": 180
+    },
+    {
+        "factoryNumber": "R11223",
+        "id": 19,
+        "ingredients": [
+            "cukier",
+            "orzechy ziemne",
+            "kakao",
+            "olej roślinny"
+        ],
+        "name": "Krem orzechowy",
+        "quantity": 250
+    },
+    {
+        "factoryNumber": "S44556",
+        "id": 20,
+        "ingredients": [
+            "mleko",
+            "cukier",
+            "czekolada"
+        ],
+        "name": "Shake czekoladowy",
+        "quantity": 210
+    },
+    {
+        "factoryNumber": "T77889",
+        "id": 21,
+        "ingredients": [
             "kakao",
             "masło kakaowe",
             "wanilia"
         ],
-        "name": "Czekolada gorzka",
+        "name": "Czekolada deserowa",
+        "quantity": 190
+    },
+    {
+        "factoryNumber": "U99100",
+        "id": 22,
+        "ingredients": [
+            "herbata biała",
+            "kwiat jaśminu"
+        ],
+        "name": "Herbata biała jaśminowa",
+        "quantity": 120
+    },
+    {
+        "factoryNumber": "V22334",
+        "id": 23,
+        "ingredients": [
+            "mąka",
+            "drożdże",
+            "cukier",
+            "czekolada"
+        ],
+        "name": "Babka czekoladowa",
         "quantity": 200
-    },
-    {
-        "factoryNumber": "C98765",
-        "id": 3,
-        "ingredients": [
-            "zielona herbata",
-            "jaśmin"
-        ],
-        "name": "Herbata zielona",
-        "quantity": 100
-    },
-    {
-        "factoryNumber": "2024/12/1",
-        "id": 4,
-        "ingredients": [
-            "mleko",
-            "miód",
-            "cukier"
-        ],
-        "name": "test",
-        "quantity": 4
     }
 ]
+

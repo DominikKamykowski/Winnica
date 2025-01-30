@@ -16,9 +16,9 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QTabWidget" name="tabWidget">
+     <widget class="QTabWidget" name="le_find_ingred">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tabOrders">
        <attribute name="title">
@@ -31,7 +31,7 @@
            <widget class="QTableWidget" name="orderTableWidget"/>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit">
+           <widget class="QLineEdit" name="le_find">
             <property name="text">
              <string>Szukaj...</string>
             </property>
@@ -114,7 +114,7 @@
            <widget class="QTableWidget" name="assortmentTableWidget"/>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_2">
+           <widget class="QLineEdit" name="le_find_assortment">
             <property name="text">
              <string>Szukaj...</string>
             </property>
@@ -132,16 +132,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_5">
+           <widget class="QPushButton" name="pb_assortEdit">
             <property name="text">
              <string>Edytuj</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_8">
-            <property name="text">
-             <string>Drukuj</string>
             </property>
            </widget>
           </item>
@@ -176,7 +169,7 @@
            <widget class="QTableWidget" name="ingredientTableWidget"/>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_3">
+           <widget class="QLineEdit" name="le_find_ingred_2">
             <property name="text">
              <string>Szukaj...</string>
             </property>
@@ -209,19 +202,6 @@
             </property>
             <property name="text">
              <string>Edytuj</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_12">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Drukuj</string>
             </property>
            </widget>
           </item>

@@ -8,10 +8,13 @@ AddNewAssortment::AddNewAssortment(QDialog* parent)
     createView();
     connect(saveButton, &QPushButton::clicked, this, &AddNewAssortment::saveClicked);
     connect(cancelButton, &QPushButton::clicked, this, &AddNewAssortment::discardClicked);
+
 }
 
 void AddNewAssortment::createView()
 {
+    this->setWindowTitle("Asortyment");
+
     mainLayout = new QVBoxLayout(this);
 
     nameEdit = new QLineEdit(this);

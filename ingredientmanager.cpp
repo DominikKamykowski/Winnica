@@ -46,10 +46,14 @@ QList<Ingredient> IngredientManager::loadIngredients()
     QFile file(filename);
     if (file.open(QIODevice::ReadOnly))
     {
+        lastId=0;
         QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
         QJsonArray array = doc.array();
         for (const auto &value : array)
+        {
             ingredients.append(Ingredient::fromJson(value.toObject()));
+            lastId++;
+        }
 
         file.close();
     }

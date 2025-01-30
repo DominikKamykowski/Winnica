@@ -25,9 +25,9 @@ void AssortmentManager::updateAssortment(const Assortment& assortment) {
     for (Assortment& a : assortments) {
         if (a.getId() == assortment.getId()) {
             a = assortment;
-            return;
         }
     }
+    saveToFile("/home/dominik/Projekty/Projekt/assortment.json");
 }
 
 void AssortmentManager::removeAssortment(int id) {
@@ -46,16 +46,18 @@ QList<Assortment> AssortmentManager::getAssortments() const {
 void AssortmentManager::appendAssortment(const Assortment& assortment)
 {
     addAssortment(assortment); // Dodajemy do wewnętrznej listy
-    saveToFile("/home/dominik/Projekty/Projekt/assortment.json"); // Zapisujemy zaktualizowaną listę do pliku
+    saveToFile("/home/dominik/Projekty/Projekt/assortment.json");
 }
 
 
 Assortment AssortmentManager::getAssortmentById(int id) const {
+
     for (const Assortment& a : assortments) {
         if (a.getId() == id) {
             return a;
         }
     }
+    qDebug()<<"brak";
     return Assortment(); // Pusty asortyment, jeśli nie znaleziono
 }
 
